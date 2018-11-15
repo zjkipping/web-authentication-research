@@ -1,0 +1,18 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Web Auth Research</span>
+    <button mat-button routerLinkActive="accent-text" routerLink="{{home}}">Home</button>
+    <button mat-button routerLinkActive="accent-text" routerLink="{{protected}}">Protected</button>
+    <span class="spacer"></span>
+    <span class="spacer"></span>
+    <span class="spacer"></span>
+    <button *ngIf="!auth" mat-raised-button (click)="login.emit()">
+      <mat-icon>account_circle</mat-icon>
+      <span>Login</span>
+    </button>
+    <button *ngIf="auth" mat-raised-button (click)="logout.emit()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Log Out</span>
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>

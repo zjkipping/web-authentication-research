@@ -1,4 +1,10 @@
-<button routerLink="login">Login</button>
-<button (click)="logout()">Logout</button>
-<button routerLink="landing">Landing</button>
-<router-outlet></router-outlet>
+<app-navbar
+  (login)="login()"
+  (logout)="logout()"
+  [auth]="authenticated | async"
+  [home]="'/okta/home'"
+  [protected]="'/okta/protected'"
+></app-navbar>
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

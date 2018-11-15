@@ -3,18 +3,20 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { OktaComponent } from './okta.component';
-import { OktaLoginComponent } from './login/okta-login.component';
-import { OktaLandingComponent } from './landing/okta-landing.component';
-import { OktaAuthGuardService } from './okta-auth-guard.service';
+import { OktaHomeComponent } from './home/okta-home.component';
+import { OktaCallbackComponent } from './okta-callback.component';
+import { OktaAuthGuard } from '@okta/okta-angular';
+import { OktaProtectedComponent } from './protected/okta-protected.component';
 
 const routes: Routes = [
   {
     path: '',
     component: OktaComponent,
     children: [
-      { path: 'login', component: OktaLoginComponent },
-      { path: 'landing', component: OktaLandingComponent, canActivate: [OktaAuthGuardService] },
-      { path: '**', redirectTo: 'landing' }
+      { path: 'home', component: OktaHomeComponent },
+      { path: 'protected', component: OktaProtectedComponent, canActivate: [OktaAuthGuard] },
+      { path: 'callback', component: OktaCallbackComponent },
+      { path: '**', redirectTo: 'home' }
     ]
   },
 ];

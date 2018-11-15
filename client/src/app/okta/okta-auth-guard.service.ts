@@ -1,16 +1,21 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
-import { OktaLoginService } from './okta-login.service';
+import { OktaAuthService } from '@okta/okta-angular';
+import { Observable, from } from 'rxjs';
+import { tap, take } from 'rxjs/operators';
 
 @Injectable()
 export class OktaAuthGuardService implements CanActivate {
-  constructor(private oktaLogin: OktaLoginService, private router: Router) { }
+  constructor(private oktaAuth: OktaAuthService) { }
 
-  canActivate(_next: ActivatedRouteSnapshot, _state: RouterStateSnapshot): boolean {
-    const idToken = this.oktaLogin.widget.tokenManager.get('idToken');
-    if (!idToken) {
-      this.router.navigate(['/okta/login']);
-    }
-    return !!idToken;
+  canActivate(_next: ActivatedRouteSnapshot, _state: RouterStateSnapshot): Observable<boolean> {
+    return from(this.oktaAuth.isAuthenticated()).pipe(
+      take(1),
+      tap(auth => {
+        if (!auth) {
+          this.oktaAuth.loginRedirect();
+        }
+      })
+    );
   }
 }

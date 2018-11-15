@@ -1,3 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 @import '~@okta/okta-signin-widget/dist/css/okta-theme.css';
+
+@import "./theme/sc-theme-mixins.scss";
+
+html, body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #262626;
+  color: white;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+}
+
+.main-container {
+  padding: 20px;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.text-center {
+  text-align: center;
+  margin: 0 auto;
+}
+
+.primary-text {
+  color: mat-color($sc-primary, 500) !important;
+}
+
+.accent-text {
+  color: mat-color($sc-accent, 500) !important;
+}
+
+.warn-text {
+  color: mat-color($sc-warn, 500) !important;
+}
+
+.success-text {
+  color: mat-color($sc-success, 500) !important;
+}
