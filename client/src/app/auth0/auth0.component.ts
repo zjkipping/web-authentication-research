@@ -1,32 +1,21 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subject, Subscription } from 'rxjs';
+import { Subject } from 'rxjs';
+import { Auth0Service } from './auth0.service';
 
 @Component({
   selector: 'app-auth0',
   templateUrl: './auth0.component.html',
   styleUrls: ['./auth0.component.scss']
 })
-export class Auth0Component implements OnDestroy {
+export class Auth0Component {
   authenticated: Subject<boolean> = new Subject();
-  // authSubscription: Subscription;
 
-  constructor( private router: Router) {
-    // this.authSubscription = this.oktaAuth.$authenticationState.subscribe(auth => this.authenticated.next(auth));
-    this.getInitialAuth();
-  }
-
-  ngOnDestroy() {
-    // this.authSubscription.unsubscribe();
-  }
-
-  async getInitialAuth() {
-    // this.authenticated.next(await this.oktaAuth.isAuthenticated());
+  constructor(public auth0: Auth0Service, private router: Router) {
   }
 
   async logout() {
-    // await this.oktaAuth.logout();
-    this.router.navigate(['/auth0/home']);
+    this.auth0.logout();
   }
 
   home() {
@@ -38,6 +27,6 @@ export class Auth0Component implements OnDestroy {
   }
 
   login() {
-    // this.oktaAuth.loginRedirect();
+    this.auth0.login();
   }
 }

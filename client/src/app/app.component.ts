@@ -13,7 +13,11 @@ export class AppComponent implements OnDestroy {
   apiToggleSubscription: Subscription;
 
   constructor(fb: FormBuilder, router: Router) {
-    this.apiToggle = fb.control(false);
+    let initialToggle = false;
+    if (window.location.pathname.includes('auth0')) {
+      initialToggle = true;
+    }
+    this.apiToggle = fb.control(initialToggle);
     this.apiToggleSubscription = this.apiToggle.valueChanges.subscribe(value => {
       if (value) {
         router.navigate(['/auth0']);

@@ -6,8 +6,6 @@ import { OktaAuthService } from '@okta/okta-angular';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  public cachedRequests = [];
-
   constructor(private oktaAuth: OktaAuthService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {

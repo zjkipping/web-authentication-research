@@ -1,7 +1,7 @@
 <app-navbar
   (login)="login()"
   (logout)="logout()"
-  [auth]="authenticated | async"
+  [auth]="auth0.isAuthenticated()"
   [home]="'/auth0/home'"
   [protected]="'/auth0/protected'"
 ></app-navbar>

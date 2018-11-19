@@ -14,7 +14,13 @@ export const oktaConfig = {
 };
 
 export const auth0Config = {
-
+  clientID: '90a92MOerxodw2tkGo2r4ct1tTTGko5R',
+  domain: 'outis.auth0.com',
+  responseType: 'token id_token',
+  redirectUri: 'http://localhost:4200/auth0/callback',
+  scope: 'openid profile email',
+  audience: 'https://outis.auth0.com/api/v2/',
+  issuer: 'outis.auth0.com'
 };
 
 /*
