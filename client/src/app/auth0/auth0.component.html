@@ -1,0 +1,10 @@
+<app-navbar
+  (login)="login()"
+  (logout)="logout()"
+  [auth]="authenticated | async"
+  [home]="'/auth0/home'"
+  [protected]="'/auth0/protected'"
+></app-navbar>
+<div class="main-container">
+  <router-outlet></router-outlet>
+</div>

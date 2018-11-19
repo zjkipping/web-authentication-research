@@ -1,48 +1,16 @@
 import { NgModule } from '@angular/core';
 import {
-  MatBadgeModule,
-  MatButtonModule,
-  MatCardModule,
-  MatChipsModule,
-  MatDialogModule,
-  MatIconModule,
-  MatInputModule,
-  MatListModule,
-  MatMenuModule,
-  MatNativeDateModule,
-  MatProgressSpinnerModule,
-  MatSnackBarModule,
-  MatSidenavModule,
+  MatSlideToggleModule,
   MatToolbarModule,
-  MatCheckboxModule,
-  MatDatepickerModule,
-  MatSelectModule,
-  MatRadioModule,
-  MatPaginatorModule,
-  MatGridListModule
+  MatIconModule,
+  MatButtonModule
 } from '@angular/material';
 
 const moduleList = [
-  MatButtonModule,
-    MatIconModule,
-    MatChipsModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatInputModule,
-    MatCardModule,
-    MatListModule,
-    MatBadgeModule,
-    MatSidenavModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatProgressSpinnerModule,
-    MatSelectModule,
-    MatDialogModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatCheckboxModule,
-    MatPaginatorModule,
-    MatGridListModule
+  MatSlideToggleModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatButtonModule
 ];
 
 @NgModule({
